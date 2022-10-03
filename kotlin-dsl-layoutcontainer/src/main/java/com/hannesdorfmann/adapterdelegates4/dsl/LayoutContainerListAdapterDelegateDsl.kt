@@ -131,7 +131,7 @@ class AdapterDelegateLayoutContainerViewHolder<T>(
      * (not val) but we rely on mechanisms from RecyclerView and assume that only the main thread can access and set
      * this field (as the user scrolls) so that we make [item] look like a val.
      */
-    internal var _item: Any = Uninitialized
+    var _item: Any = Uninitialized
 
     /**
      * Get the current bound item.
@@ -139,7 +139,7 @@ class AdapterDelegateLayoutContainerViewHolder<T>(
     val item: T
         get() = if (_item === Uninitialized) {
             throw IllegalArgumentException(
-                "Item has not been set yet. That is an internal issue. " +
+                "Item has not been set yet. That is an issue. " +
                     "Please report at https://github.com/sockeqwe/AdapterDelegates"
             )
         } else {
@@ -251,35 +251,35 @@ class AdapterDelegateLayoutContainerViewHolder<T>(
      * This should never be called directly.
      * Use [bind] instead which internally sets this field.
      */
-    internal var _bind: ((payloads: List<Any>) -> Unit)? = null
+    var _bind: ((payloads: List<Any>) -> Unit)? = null
         private set
 
     /**
      * This should never be called directly (only called internally)
      * Use [onViewRecycled] instead
      */
-    internal var _onViewRecycled: (() -> Unit)? = null
+    var _onViewRecycled: (() -> Unit)? = null
         private set
 
     /**
      * This should never be called directly (only called internally)
      * Use [onFailedToRecycleView] instead.
      */
-    internal var _onFailedToRecycleView: (() -> Boolean)? = null
+    var _onFailedToRecycleView: (() -> Boolean)? = null
         private set
 
     /**
      * This should never be called directly (only called internally)
      * Use [onViewAttachedToWindow] instead.
      */
-    internal var _onViewAttachedToWindow: (() -> Unit)? = null
+    var _onViewAttachedToWindow: (() -> Unit)? = null
         private set
 
     /**
      * This should never be called directly (only called internally)
      * Use [onViewDetachedFromWindow] instead.
      */
-    internal var _onViewDetachedFromWindow: (() -> Unit)? = null
+    var _onViewDetachedFromWindow: (() -> Unit)? = null
         private set
 
     /**
