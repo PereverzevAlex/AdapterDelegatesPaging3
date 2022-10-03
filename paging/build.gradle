@@ -28,7 +28,9 @@ android {
 
 dependencies {
     implementation project(":library")
+    implementation project(path: ':kotlin-dsl-layoutcontainer')
     api rootProject.ext.paging
+    implementation rootProject.ext.paging3
 
     testImplementation rootProject.ext.junit
     testImplementation rootProject.ext.mockito

@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.3'
@@ -34,6 +35,7 @@ ext {
     junit = 'junit:junit:4.12'
     mockito = 'org.mockito:mockito-inline:2.21.0'
     constraintLayout = 'androidx.constraintlayout:constraintlayout:2.1.1'
+    paging3 = 'androidx.paging:paging-runtime-ktx:3.1.1'
 
     javaSourceCompatibility = JavaVersion.VERSION_1_8
     javaTargetCompatibility = JavaVersion.VERSION_1_8

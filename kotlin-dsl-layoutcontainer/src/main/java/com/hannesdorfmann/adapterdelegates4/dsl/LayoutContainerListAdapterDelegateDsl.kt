@@ -124,13 +124,6 @@ class AdapterDelegateLayoutContainerViewHolder<T>(
 
     private object Uninitialized
 
-    /**
-     * Used only internally to set the item.
-     * The outside consumer should always access [item].
-     * We do that to trick the user for his own convenience since the Item is only available later and is actually var
-     * (not val) but we rely on mechanisms from RecyclerView and assume that only the main thread can access and set
-     * this field (as the user scrolls) so that we make [item] look like a val.
-     */
     var _item: Any = Uninitialized
 
     /**
@@ -247,38 +240,17 @@ class AdapterDelegateLayoutContainerViewHolder<T>(
         }
     }
 
-    /**
-     * This should never be called directly.
-     * Use [bind] instead which internally sets this field.
-     */
     var _bind: ((payloads: List<Any>) -> Unit)? = null
-        private set
 
-    /**
-     * This should never be called directly (only called internally)
-     * Use [onViewRecycled] instead
-     */
     var _onViewRecycled: (() -> Unit)? = null
         private set
 
-    /**
-     * This should never be called directly (only called internally)
-     * Use [onFailedToRecycleView] instead.
-     */
     var _onFailedToRecycleView: (() -> Boolean)? = null
         private set
 
-    /**
-     * This should never be called directly (only called internally)
-     * Use [onViewAttachedToWindow] instead.
-     */
     var _onViewAttachedToWindow: (() -> Unit)? = null
         private set
 
-    /**
-     * This should never be called directly (only called internally)
-     * Use [onViewDetachedFromWindow] instead.
-     */
     var _onViewDetachedFromWindow: (() -> Unit)? = null
         private set
 
